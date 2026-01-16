@@ -14,8 +14,8 @@ def load_pmids(filepath):
         return set()
 
 # Load PMIDs from both files
-pmids1 = load_pmids('.\data\phibase_4.csv')
-pmids2 = load_pmids('.\data\phibase_5.csv')
+pmids1 = load_pmids('phibase_4.csv')
+pmids2 = load_pmids('phibase_5.csv')
 
 # App title
 st.title("PMID Checker for PHI-base")
