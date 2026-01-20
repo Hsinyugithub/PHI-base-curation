@@ -21,6 +21,7 @@ pmids2 = load_pmids(os.path.join(base_path, 'phibase_5.csv'))
 
 # App title
 st.title("PMID Checker for PHI-base")
+st.caption("PHI-base: 7 January 2026 • PHI-Canto: 13 January 2026")
 
 # Input field
 pmid = st.text_input("Enter PMID (digits only):")
