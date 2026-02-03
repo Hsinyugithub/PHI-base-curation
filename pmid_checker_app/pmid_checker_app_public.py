@@ -6,7 +6,7 @@ import os
 # ----------------------------
 # Configuration
 # ----------------------------
-MAX_PMIDS = 50
+MAX_PMIDS = 1000
 
 # ----------------------------
 # Functions
@@ -33,7 +33,7 @@ st.title("PMID Checker for PHI-base")
 st.caption("PHI-base: 7 January 2026 • PHI-Canto: 13 January 2026")
 
 pmid_input = st.text_area(
-    "Enter one or more PMIDs (comma, space, or newline separated, max: 50):"
+    "Enter one or more PMIDs (comma, space, or newline separated, max: 1000):"
 )
 
 results = []
