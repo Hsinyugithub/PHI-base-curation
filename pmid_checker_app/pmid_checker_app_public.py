@@ -30,7 +30,7 @@ pmids2 = load_pmids(os.path.join(base_path, "phibase_5.csv"))
 # UI
 # ----------------------------
 st.title("PMID Checker for PHI-base")
-st.caption("PHI-base: 7 January 2026 • PHI-Canto: 13 January 2026")
+st.caption("PHI-base: 7 January 2026 • PHI-Canto: 3 February 2026")
 
 pmid_input = st.text_area(
     "Enter one or more PMIDs (comma, space, or newline separated, max: 1000):"
