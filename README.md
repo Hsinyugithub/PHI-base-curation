@@ -1,105 +1,153 @@
-# PMID Checker for PHI-base
+PMID Checker for PHI-base
 
-A lightweight Streamlit web application to check whether PubMed IDs
-(PMIDs) have been curated in **PHI-base 4** and/or **PHI-Canto**.
+A lightweight Streamlit application for checking whether one or more PubMed IDs (PMIDs) have already been curated in PHI-base or PHI-Canto.
 
-This tool is designed to support biocuration workflows by quickly
-identifying the curation status of single or multiple publications.
+This tool helps prevent duplicate curation and supports efficient literature triage.
 
-------------------------------------------------------------------------
+Overview
 
-## Features
+The app compares user-entered PMIDs against two internal datasets:
 
--   ✅ Check one or multiple PMIDs at once (batch input)
--   📂 Compares against two local CSV files:
-    -   `phibase_4.csv`
-    -   `phibase_5.csv` (PHI-Canto)
--   📊 Clear on-screen status indicators
--   ⬇️ Download results as a CSV file
--   ⚡ Fast and simple interface using Streamlit
+phibase_4.csv
 
-------------------------------------------------------------------------
+phibase_5.csv
 
-## Interface
+It reports whether each PMID is:
 
-Users can paste PMIDs separated by: - commas\
-- spaces\
-- new lines
+Curated in PHI-base4
 
-Maximum recommended input: **50 PMIDs per check**
+Curated in PHI-Canto
 
-------------------------------------------------------------------------
+Curated in BOTH
 
-## Status Definitions
+Not curated
 
-  -----------------------------------------------------------------------
-  Status                         Meaning
-  ------------------------------ ----------------------------------------
-  Curated in BOTH PHI-base4 and  PMID appears in both datasets
-  PHI-Canto                      
+The results can be viewed interactively and downloaded as a CSV file.
 
-  Curated in PHI-base4           PMID curated only in PHI-base 4
+Features
 
-  Curated in PHI-Canto           PMID curated only in PHI-Canto
+Accepts up to 1000 PMIDs at once
 
-  Not curated                    PMID not found in either dataset
-  -----------------------------------------------------------------------
+Supports comma, space, or newline separation
 
-------------------------------------------------------------------------
+Automatically ignores non-numeric input
 
-## File Structure
+Removes duplicate PMIDs
 
-. ├── app.py ├── phibase_4.csv ├── phibase_5.csv └── README.md
+Interactive summary counts
 
--   CSV files must contain PMIDs in the **first column**
--   A header row is expected and will be skipped
+Optional full results table
 
-------------------------------------------------------------------------
+Downloadable CSV output
 
-## Installation
+Fast membership checking using Python sets
 
-### 1. Clone the repository
+Requirements
 
-``` bash
-git clone <repository-url>
-cd <repository-name>
-```
+Python 3.9+
 
-### 2. Install dependencies
+Streamlit
 
-``` bash
+pandas
+
+Install dependencies:
+
 pip install streamlit pandas
-```
 
-------------------------------------------------------------------------
+File Structure
+project_folder/
+│
+├── app.py
+├── phibase_4.csv
+├── phibase_5.csv
+└── README.md
 
-## Running the App
 
-``` bash
+phibase_4.csv and phibase_5.csv must:
+
+Be located in the same directory as the app
+
+Contain PMIDs in the first column
+
+Have one PMID per row
+
+Running the App
+
+From the project directory:
+
 streamlit run app.py
-```
 
-The app will open automatically in your default web browser.
 
-------------------------------------------------------------------------
+The application will open automatically in your browser.
 
-## Notes
+How It Works
 
--   PMIDs must be numeric
--   Duplicate PMIDs are allowed but may be filtered in future versions
--   CSV files are loaded locally; no external APIs are used
+CSV files are loaded into Python sets for fast lookup.
 
-------------------------------------------------------------------------
+User input is cleaned and validated.
 
-## Version Information
+PMIDs are checked for membership in each dataset.
 
--   **PHI-base reference date:** 7 January 2026\
--   **PHI-Canto reference date:** 13 January 2026
+Status is assigned based on presence in one or both datasets.
 
-(Displayed in the app interface)
+Results are displayed and can be exported.
 
-------------------------------------------------------------------------
+Input Rules
 
-## License
+Maximum: 1000 PMIDs per submission
 
-Internal tool for PHI-base curation support.
+Only numeric PMIDs are accepted
+
+Duplicate entries are automatically removed
+
+Non-numeric values are ignored
+
+Example Input
+12345678
+23456789, 34567890
+45678901 56789012
+
+Output Example
+PMID	Status
+12345678	Curated in PHI-base4
+23456789	Curated in BOTH PHI-base4 and PHI-Canto
+34567890	Not curated
+Use Case
+
+This tool is designed to support:
+
+Literature triage
+
+Pre-curation checks
+
+Internal database maintenance
+
+Avoiding duplicate curation
+
+Rapid reporting during meetings or conferences
+
+Future Improvements (Optional)
+
+Potential enhancements:
+
+Direct PubMed API lookup
+
+DOI support
+
+Integration with PHI-base export pipeline
+
+Multi-version comparison
+
+Dashboard summary statistics
+
+Maintainer
+
+Developed for PHI-base curation workflow.
+
+If you'd like, I can also provide:
+
+A more formal institutional version
+
+A public-facing GitHub version
+
+Or a version styled for documentation portals
