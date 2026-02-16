@@ -1,7 +1,7 @@
 # PMID Checker for PHI-base
 
-A lightweight Streamlit application for checking whether one or more
-PubMed IDs (PMIDs) have already been curated in PHI-base or PHI-Canto.
+A lightweight Streamlit web application to check whether PubMed IDs
+(PMIDs) have been curated in **PHI-base 4** and/or **PHI-Canto**.
 
 This tool helps prevent duplicate curation and supports efficient
 literature triage.
